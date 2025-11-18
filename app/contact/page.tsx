@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { Navigation } from '@/components/navigation'
 import { Footer } from '@/components/footer'
 import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react'
+import { sendContactEmail } from '@/app/actions/send-email'
 
 export default function ContactPage() {
   const [isVisible, setIsVisible] = useState(false)
@@ -45,31 +46,21 @@ export default function ContactPage() {
     }
 
     setIsSubmitting(true)
+    setError('')
 
     try {
-      const response = await fetch('https://formspree.io/f/xyzgwpbq', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          query: formData.query,
-          _to: 'Srisaitech1973@gmail.com',
-        }),
-      })
+      const result = await sendContactEmail(formData)
 
-      if (response.ok) {
+      if (result.success) {
         setSubmitted(true)
         setFormData({ name: '', email: '', phone: '', query: '' })
         setTimeout(() => setSubmitted(false), 5000)
       } else {
-        setError('Failed to send message. Please try again.')
+        setError(result.message)
       }
     } catch (err) {
-      setError('An error occurred. Please try again.')
+      console.error('Error:', err)
+      setError('Failed to send message. Please try again.')
     } finally {
       setIsSubmitting(false)
     }
