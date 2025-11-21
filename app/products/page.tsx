@@ -8,25 +8,25 @@ const productCategories = [
   {
     name: 'AHD Cameras',
     description: 'Advanced High Definition cameras with exceptional clarity and resolution',
-    color: 'from-primary to-dark-gray',
+    color: 'from-blue-600 to-blue-800',
     features: ['1080P - 4MP resolution', 'Night vision', 'Weather resistant', 'Easy installation'],
   },
   {
     name: 'IP Cameras',
     description: 'Internet Protocol cameras for networked surveillance systems',
-    color: 'from-primary/90 to-dark-gray',
+    color: 'from-purple-600 to-purple-800',
     features: ['Network connectivity', 'Remote access', 'Cloud storage compatible', 'High resolution'],
   },
   {
     name: 'WiFi PTZ Cameras',
     description: 'Pan, Tilt, Zoom cameras with wireless connectivity for flexible monitoring',
-    color: 'from-primary to-dark-gray/80',
+    color: 'from-orange-600 to-orange-800',
     features: ['360° coverage', 'Wireless control', 'Zoom capability', 'Motion tracking'],
   },
   {
     name: 'Solar Cameras',
     description: 'Solar-powered SIM-based cameras for remote locations without power',
-    color: 'from-primary/85 to-dark-gray',
+    color: 'from-green-600 to-green-800',
     features: ['Solar powered', 'SIM based', 'Remote monitoring', 'Low maintenance'],
   },
 ]
@@ -36,7 +36,7 @@ const brands = [
   { name: 'CP PLUS', logo: '📹' },
   { name: 'DAHUA', logo: '🎥' },
   { name: 'PRAMA', logo: '📊' },
-  { name: 'HI FOCUS', logo: '👁️' },
+  { name: 'HIGH FOCUS', logo: '👁️' },
   { name: 'Others', logo: '⭐' },
 ]
 
@@ -52,17 +52,17 @@ export default function ProductsPage() {
       <Navigation />
 
       {/* Hero section */}
-      <section className="bg-gradient-to-br from-primary to-dark-gray text-white py-20 pt-32">
+      <section className="bg-gradient-to-br from-primary to-primary/80 text-white py-20 pt-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1
             className={`text-5xl sm:text-6xl font-bold mb-4 transform transition-all duration-1000 ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
             }`}
           >
-            Our <span className="text-secondary">Products</span>
+            Our <span className="text-accent">Products</span>
           </h1>
           <p
-            className={`text-xl text-gray-300 max-w-2xl mx-auto transform transition-all duration-1000 delay-200 ${
+            className={`text-xl text-blue-100 max-w-2xl mx-auto transform transition-all duration-1000 delay-200 ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
             }`}
           >
@@ -114,7 +114,7 @@ export default function ProductsPage() {
       {/* Brands section */}
       <section className="py-20 bg-secondary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center text-primary mb-16">
+          <h2 className="text-4xl font-bold text-center text-foreground mb-16">
             Trusted <span className="text-accent">Brands</span>
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
@@ -130,9 +130,9 @@ export default function ProductsPage() {
                   transitionDelay: isVisible ? `${index * 100}ms` : '0ms',
                 }}
               >
-                <div className="bg-card border border-primary/20 rounded-xl p-6 text-center hover:border-accent/50 hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
+                <div className="bg-card border border-border rounded-xl p-6 text-center hover:border-accent/50 hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
                   <div className="text-4xl mb-3">{brand.logo}</div>
-                  <p className="font-bold text-primary text-sm">{brand.name}</p>
+                  <p className="font-bold text-foreground text-sm">{brand.name}</p>
                 </div>
               </div>
             ))}

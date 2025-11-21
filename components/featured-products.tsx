@@ -7,22 +7,22 @@ const products = [
   {
     category: 'AHD Cameras',
     description: 'Advanced High Definition cameras with exceptional clarity',
-    color: 'from-primary to-dark-gray',
+    color: 'from-blue-600 to-blue-800',
   },
   {
     category: 'IP Cameras',
     description: 'Internet Protocol cameras for networked surveillance',
-    color: 'from-primary/90 to-dark-gray',
+    color: 'from-purple-600 to-purple-800',
   },
   {
     category: 'WiFi PTZ Cameras',
     description: 'Pan, Tilt, Zoom cameras with wireless connectivity',
-    color: 'from-primary to-dark-gray/80',
+    color: 'from-orange-600 to-orange-800',
   },
   {
     category: 'Solar Cameras',
     description: 'Solar-powered SIM-based cameras for remote locations',
-    color: 'from-primary/85 to-dark-gray',
+    color: 'from-green-600 to-green-800',
   },
 ]
 
@@ -31,7 +31,7 @@ const brands = [
   'CP PLUS',
   'DAHUA',
   'PRAMA',
-  'HI FOCUS',
+  'HIGH FOCUS',
   'Others',
 ]
 
@@ -79,7 +79,7 @@ export function FeaturedProducts() {
         </div>
 
         {/* Product categories */}
-        <div className="grid md:grid-cols-2 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 gap-6 mb-16">
           {products.map((product, index) => (
             <div
               key={product.category}
@@ -114,11 +114,34 @@ export function FeaturedProducts() {
           ))}
         </div>
 
+        {/* Brands section */}
+        <div
+          className={`transform transition-all duration-1000 delay-600 ${
+            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+          }`}
+        >
+          <div className="bg-card border border-border rounded-xl p-8">
+            <h3 className="text-xl font-bold text-foreground mb-6">
+              Trusted <span className="text-accent">Brands</span>
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+              {brands.map((brand) => (
+                <div
+                  key={brand}
+                  className="bg-secondary rounded-lg p-4 text-center text-foreground font-semibold hover:bg-accent/10 hover:border-accent/50 border transition-all duration-300 text-sm"
+                >
+                  {brand}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
         {/* CTA */}
-        <div className="text-center">
+        <div className="text-center mt-12">
           <Link
             href="/products"
-            className="inline-block bg-primary text-secondary px-8 py-3 rounded-lg font-semibold hover:shadow-lg hover:shadow-primary/50 transition-all transform hover:scale-105"
+            className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:shadow-lg hover:shadow-primary/50 transition-all transform hover:scale-105"
           >
             View All Products
           </Link>

@@ -35,10 +35,9 @@ export function Navigation() {
           {/* Logo */}
           <Link
             href="/"
-            className="text-2xl font-bold transition-colors"
+            className="text-2xl font-bold text-primary hover:text-accent transition-colors"
           >
-            <span className={`${isScrolled ? 'text-accent' : 'text-secondary'}`}>Sri Sai</span> 
-            <span className={`${isScrolled ? 'text-primary' : 'text-secondary'}`}> Tech</span>
+            <span className="text-accent">Sri Sai</span> Tech
           </Link>
 
           {/* Desktop Navigation */}
@@ -47,14 +46,14 @@ export function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`${isScrolled ? 'text-primary hover:text-accent' : 'text-secondary hover:text-accent'} transition-colors font-medium`}
+                className="text-foreground hover:text-accent transition-colors font-medium"
               >
                 {link.label}
               </Link>
             ))}
             <Link
               href="/contact"
-              className="bg-accent text-primary px-6 py-2 rounded-lg hover:opacity-90 transition-all transform hover:scale-105 font-medium"
+              className="bg-accent text-accent-foreground px-6 py-2 rounded-lg hover:opacity-90 transition-all transform hover:scale-105"
             >
               Get Quote
             </Link>
@@ -62,7 +61,7 @@ export function Navigation() {
 
           {/* Mobile Menu Button */}
           <button
-            className={`md:hidden ${isScrolled ? 'text-primary' : 'text-secondary'}`}
+            className="md:hidden text-foreground"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -71,12 +70,12 @@ export function Navigation() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden pb-4 bg-white/95 animate-fade-in-up">
+          <div className="md:hidden pb-4 animate-fade-in-up">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="block px-4 py-2 text-primary hover:text-accent transition-colors"
+                className="block px-4 py-2 text-foreground hover:text-accent transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
@@ -84,7 +83,7 @@ export function Navigation() {
             ))}
             <Link
               href="/contact"
-              className="block px-4 py-2 bg-accent text-primary rounded-lg m-4 text-center hover:opacity-90 font-medium"
+              className="block px-4 py-2 bg-accent text-accent-foreground rounded-lg m-4 text-center hover:opacity-90"
               onClick={() => setIsOpen(false)}
             >
               Get Quote
