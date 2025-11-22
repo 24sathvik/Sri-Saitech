@@ -201,3 +201,7 @@
 .animate-shimmer {
   animation: shimmer 2s ease-in-out infinite;
 }
+ #V0-badge,
+  #v0-badge {
+    display: none !important;
+  }
